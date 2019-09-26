@@ -4,7 +4,6 @@ require "action_controller/railtie"
 
 class App < Rails::Application
   config.consider_all_requests_local = true
-  config.eager_load = false
   config.logger = Rails.logger = Logger.new(STDOUT)
 
   routes.append do
