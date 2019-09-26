@@ -1,0 +1,21 @@
+<%= form_with(model: @gear, url: '/calculate') do |f| %>
+  <%= f.label :chainring %>
+  <%= f.number_field :chainring  %>
+
+  <%= f.label :cog %>
+  <%= f.number_field :cog  %>
+
+  <%= fields_for(@wheel) do |w| %>
+    <%= w.label :rim %>
+    <%= w.number_field :rim  %>
+
+    <%= w.label :tire %>
+    <%= w.number_field :tire  %>
+  <% end %>
+
+  <%= f.submit "Calculate" %>
+<% end %>
+
+<p>Gear ratio: <%= @gear.ratio %></p>
+<p>Wheel diameter: <%= @wheel.diameter %></p>
+<p>Wheel circumference: <%= @wheel.circumference %></p>
